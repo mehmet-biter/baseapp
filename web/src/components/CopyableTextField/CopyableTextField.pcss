@@ -1,0 +1,89 @@
+.cr-copyable-text-field {
+  align-items: center;
+  background: var(--dropdown-background-color);
+  background: inherit;
+  border: none;
+  border-radius: calc(var(--gap) * 0.66);
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 0;
+
+  .input-group {
+    position: relative;
+
+    .custom-input {
+      width: 100%;
+    }
+
+    &-append {
+      position: absolute;
+      right: 4px;
+      top: 4px;
+      z-index: 100;
+    }
+  }
+
+  .cr-copyable-text-field__button.btn.btn-primary,
+  .cr-copyable-text-field__button.btn.btn-primary:focus  {
+    background: var(--dropdown-background-color);
+    border: 1px solid var(--secondary-contrast-cta-color-level-4);
+    color: var(--secondary-contrast-cta-color);
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+
+    &:hover {
+      background: var(--button-secondary-cta-background-color-hover);
+      color: var(--button-secondary-cta-text-color-hover);
+      transition: 0.2s;
+    }
+  }
+
+  legend {
+    background: var(--input-legend-color);
+    margin-bottom: auto;
+    margin-top: calc(var(--gap) * -1.5);
+    position: absolute;
+    width: max-content;
+  }
+
+  &__input {
+    background: var(--dropdown-background-color) !important;
+    color: var(--input-text-color);
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    padding: calc(var(--gap) * 1.67) calc(var(--gap) * 0.83) calc(var(--gap) * 0.83) var(--gap) !important;
+    width: 100%;
+
+    input {
+      background: unset;
+      color: var(--input-text-color);
+    }
+  }
+
+  .cr-copyable-text-field {
+    padding: 0;
+  }
+
+  .custom-input input {
+    label {
+      font-weight: bold;
+      font-size: 10px;
+      line-height: 13px;
+      letter-spacing: 0.06em;
+    }
+  }
+
+  .custom-input input,
+  .custom-input input:focus, {
+    background: var(--dropdown-background-color) !important;
+    border-radius: 0;
+    border-style: none;
+    color: var(--input-text-color);
+    outline: none;
+    width: 100%;
+  }
+}

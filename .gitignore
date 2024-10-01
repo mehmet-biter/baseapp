@@ -1,0 +1,19 @@
+# misc
+.DS_Store
+
+# sonic
+bin/
+.vscode
+
+# baseapp
+web/.DS_Store
+web/node_modules
+web/build
+web/npm-debug.log*
+web/yarn-debug.log*
+web/yarn-error.log*
+web/.env.local
+web/.env.development.local
+web/.env.test.local
+web/.env.production.local
+web/.env

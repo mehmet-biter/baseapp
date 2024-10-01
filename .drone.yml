@@ -1,0 +1,69 @@
+---
+kind: pipeline
+name: "New version"
+
+concurrency:
+  limit: 2
+
+steps:
+  - name: "Bump & Tag"
+    image: quay.io/openware/sdk-citools:2.6.7
+    environment:
+      BRANCH_NAME: ${DRONE_BRANCH}
+      REPO_NAME: ${DRONE_REPO}
+      GITHUB_API_KEY:
+        from_secret: kite_bot_key
+    commands:
+      - BUNDLE_GEMFILE=/sdk/Gemfile bundle exec rake --rakefile=/sdk/Rakefile ci:prebuild
+    when:
+      branch:
+        - "master"
+        - "*-stable"
+
+  - name: "Save Git SHA"
+    image: alpine:3
+    commands:
+      - echo ${DRONE_COMMIT:0:7} > .tags
+    when:
+      branch:
+        - "enhancement/*"
+        - "integration/*"
+        - "fix/*"
+        - "feature/*"
+
+  - name: "Build Docker image"
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: quay_username
+      password:
+        from_secret: quay_password
+      repo:
+        from_secret: quay_repo
+      registry: quay.io
+    when:
+      branch:
+        - "master"
+        - "*-stable"
+        - "enhancement/*"
+        - "integration/*"
+        - "fix/*"
+        - "feature/*"
+
+  - name: "Update global OpenDAX version"
+    image: quay.io/openware/goci:0.0.11
+    environment:
+      GIT_TOKEN:
+        from_secret: kite_bot_key
+    commands:
+      - /app/goci -component=sonic versions
+    when:
+      branch:
+        - master
+
+trigger:
+  event:
+    - push
+
+image_pull_secrets:
+  - dockerconfigjson

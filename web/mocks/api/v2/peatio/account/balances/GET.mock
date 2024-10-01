@@ -1,0 +1,120 @@
+HTTP/2 200
+Content-Type: application/json; charset=utf-8
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Credentials: true
+
+[
+    {
+        "currency":"bch",
+        "balance":"0",
+        "locked":"0",
+        "account_type": "spot",
+        "deposit_addresses": [
+            {
+                "currencies": ["bch"],
+                "address": null,
+                "state": "pending",
+                "blockchain_key": "bitcoincash"
+            }
+        ]
+    },
+    {
+        "currency": "btc",
+        "balance": "0.21026373",
+        "locked": "0.0",
+        "account_type": "spot",
+        "deposit_addresses": [
+            {
+                "currencies": ["btc"],
+                "address": "2NCimTNGnbm92drX7ARcwBKw6rvr456VWym",
+                "state": "active",
+                "blockchain_key": "bitcoin"
+            },
+            {
+                "currencies": ["btc"],
+                "address": "test",
+                "state": "active",
+                "blockchain_key": "bitcoin_test"
+            },
+            {
+                "currencies": ["btc"],
+                "address": "disabled",
+                "state": "disabled",
+                "blockchain_key": "bitcoin_disabled"
+            }
+        ]
+    },
+    {
+        "currency": "eth",
+        "balance": "1.5",
+        "locked": "0.05",
+        "account_type": "spot",
+        "deposit_addresses": [
+            {
+                "currencies": ["eth", "trst"],
+                "address": "0x00eec1e95026faf0412d7a29b94d514d31446141",
+                "state": "active",
+                "blockchain_key": "erc20"
+            }
+        ]
+    },
+    {
+        "currency":"ltc",
+        "balance":"0.0",
+        "locked":"0.0",
+        "account_type": "spot",
+        "deposit_addresses": null
+    },
+    {
+        "currency":"dash",
+        "balance":"0",
+        "locked":"0",
+        "account_type": "spot",
+        "deposit_addresses": [
+            {
+                "currencies": ["dash"],
+                "address": "XpESxaUmonkq8RaLLp46Brx2K39ggQe226",
+                "state": "active",
+                "blockchain_key": "erc20"
+            }
+        ]
+    },
+    {
+        "currency":"xrp",
+        "balance":"0",
+        "account_type": "spot",
+        "locked":"0"
+    },
+    {
+        "currency":"usdt",
+        "balance":"1000.0",
+        "account_type": "spot",
+        "locked":"0.0"
+    },
+    {
+        "currency":"krw",
+        "balance":"548000",
+        "account_type": "spot",
+        "locked":"2000"
+    },
+    {
+        "currency":"usd",
+        "balance":"1000.0",
+        "account_type": "spot",
+        "locked":"0.0"
+    },
+    {
+        "currency":"eur",
+        "balance":"1000.0",
+        "account_type": "spot",
+        "locked":"0.0"
+    },
+    {
+        "currency":"ngn",
+        "balance":"1000.0",
+        "account_type": "spot",
+        "locked":"0.0"
+    }
+]
